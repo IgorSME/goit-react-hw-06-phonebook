@@ -3,12 +3,12 @@ import React from 'react';
 import { ContactListItem } from '../ContactListItem/ContactListItem';
 import { Contacts } from './ContactList.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { delContact } from 'Redux/contactsSlice';
+import { delContact, getContacts, getFilter } from 'Redux/contactsSlice';
 
 export function ContactList() {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts.items);
-  const value = useSelector(state => state.contacts.filter);
+  const contacts = useSelector(getContacts);
+  const value = useSelector(getFilter);
 
   const getFilteredContacts = () => {
     const normalizedFilter = value.toLowerCase();
